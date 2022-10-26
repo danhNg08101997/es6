@@ -202,31 +202,31 @@
 // }
 
 // //----------------------------bải tập 2--------------------------------------
-document.querySelector("#formNhanVien").onsubmit = function (e) {
-  //cản sự kiện reload browser
-  e.preventDefault();
-  console.log(123);
+// document.querySelector("#formNhanVien").onsubmit = function (e) {
+//   //cản sự kiện reload browser
+//   e.preventDefault();
+//   console.log(123);
 
-  let arrInput = document.querySelectorAll(
-    "#formNhanVien input, #formNhanVien select"
-  );
-  let nhanVien = {}; // dynamic object
-  for (let input of arrInput) {
-    let { id, value } = input;
-    nhanVien[id] = value;
-  }
-  console.log(nhanVien);
-  //Hiển thị dữ liệu
-  let html = "";
-  for (let key in nhanVien) {
-    html += `<tr>
-    <th>${key}</th>
-    <th>${nhanVien[key]}</th>
-    </tr>`;
-  }
-  document.querySelector("#tblNhanVien").innerHTML = html;
-};
-// ---------------callback function-------------------------------
+//   let arrInput = document.querySelectorAll(
+//     "#formNhanVien input, #formNhanVien select"
+//   );
+//   let nhanVien = {}; // dynamic object
+//   for (let input of arrInput) {
+//     let { id, value } = input;
+//     nhanVien[id] = value;
+//   }
+//   console.log(nhanVien);
+//   //Hiển thị dữ liệu
+//   let html = "";
+//   for (let key in nhanVien) {
+//     html += `<tr>
+//     <th>${key}</th>
+//     <th>${nhanVien[key]}</th>
+//     </tr>`;
+//   }
+//   document.querySelector("#tblNhanVien").innerHTML = html;
+// };
+// // ---------------callback function-------------------------------
 // callback function là function đóng vai trò là tham số được gọi trong function khác
 function main(callback) {
   document.querySelector("#content").innerHTML = callback("cybersoft");
@@ -235,5 +235,12 @@ function main(callback) {
 //   return `<section class="bg-dark text-white p-5" style="border-radius:5px">${title}</section>`;
 // }
 main((title) => {
-  return `<section class="bg-dark text-white p-5" style="border-radius:5px">${title}</section>`;
+  return `<section class="bg-warning text-white p-3" style="border-radius:5px">${title}</section>`;
 });
+
+import { SinhVien, arr } from "./models/SinhVien.js";
+//export default khi import thì có thể rename nhưng không có dấu ngoặc nhọn
+import SinhVienABC from "./models/SinhVien.js";
+
+let sv = new SinhVien();
+console.log(sv);
